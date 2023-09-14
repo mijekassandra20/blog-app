@@ -1,21 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import {
     TextField,
-    Autocomplete,
-    InputAdornment,
-    IconButton,
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
     DialogActions,
     DialogContent,
     DialogTitle,
     Dialog,
     Button,
 } from "@mui/material";
+
+import { addBlog } from "../states/stateSlice";
 
 // props type when opening the modal for adding blog
 type AddBlogType = {
@@ -30,7 +27,6 @@ type BlogInput = {
     title: string;
     description: string;
     author: string;
-    date: string;
 };
 
 const AddBlog: React.FC<AddBlogType> = ({
@@ -40,15 +36,37 @@ const AddBlog: React.FC<AddBlogType> = ({
     disagreeText,
     handleCloseModal,
 }) => {
+    const dispatch = useDispatch();
+
     const {
         register,
         handleSubmit,
-        watch,
-        formState: { errors },
+        // formState: { errors },
     } = useForm<BlogInput>();
-    const onSubmit: SubmitHandler<BlogInput> = (data) => console.log(data);
 
-    // console.log(watch("example")); // watch input value by passing the name of it
+    const onSubmit: SubmitHandler<BlogInput> = (data) => {
+        try {
+            console.log(data);
+
+            if (data) {
+                dispatch(
+                    addBlog({
+                        id: Date.now(),
+                        title: data.title,
+                        description: data.description,
+                        author: data.author,
+                        date: new Date().toISOString(),
+                    })
+                );
+                handleCloseModal();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    // blog state
+    // const blogs = useSelector((state: IRootState) => state.blogSlice);
 
     return (
         <Dialog
@@ -63,7 +81,13 @@ const AddBlog: React.FC<AddBlogType> = ({
                 <DialogContent
                     sx={{ width: "500px", height: "60vh", overflowY: "auto", display: "GRID" }}
                 >
-                    <TextField required id="outlined-basic" label="Title" variant="outlined" />
+                    <TextField
+                        required
+                        id="outlined-basic"
+                        label="Title"
+                        variant="outlined"
+                        {...register("title")}
+                    />
                     <TextField
                         required
                         id="outlined-multiline-static"
@@ -71,8 +95,15 @@ const AddBlog: React.FC<AddBlogType> = ({
                         multiline
                         rows={8}
                         variant="outlined"
+                        {...register("description")}
                     />
-                    <TextField required id="outlined-basic" label="Author" variant="outlined" />
+                    <TextField
+                        required
+                        id="outlined-basic"
+                        label="Author"
+                        variant="outlined"
+                        {...register("author")}
+                    />
 
                     <DialogActions>
                         <Button onClick={handleCloseModal}>{disagreeText}</Button>

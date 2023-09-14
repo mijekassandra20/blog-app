@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-// import { addBlog, removeBlog } from "../states/stateSlice";
+import { useSelector } from "react-redux";
 import { IRootState } from "../app/store";
 
 // mui imports
@@ -58,7 +57,7 @@ const AllBlogs: React.FC = () => {
                 </ThemeProvider>
             </Box>
             {/* <Box className="blog-card"></Box> */}
-            <Box>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Grid
                     className="grid-card-container"
                     sx={{ gap: 3 }}
@@ -67,7 +66,7 @@ const AllBlogs: React.FC = () => {
                     columns={{ xs: 2, sm: 8, md: 12 }}
                 >
                     {blogs.map((blog) => (
-                        <Box className="blog-card" key={blog.id}>
+                        <Box className="blog-card" key={blog.id} sx={{ flexGrow: 1 }}>
                             <ThemeProvider theme={typographyTheme}>
                                 <Typography className="blog-title" variant="subtitle2">
                                     {blog.title}

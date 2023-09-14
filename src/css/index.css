@@ -20,6 +20,10 @@ p {
     font-family: var(--main-font);
 }
 
+.cursor-style {
+    cursor: pointer;
+}
+
 .title-container {
     display: grid;
     justify-content: center;
@@ -30,16 +34,17 @@ p {
 
 .grid-card-container {
     display: flex;
-    justify-content: center;
+    /* flex-wrap: wrap; */
     padding-block: 2rem;
-    /* background-color: pink; */
+    /* justify-content: center; */
 }
 
 .blog-card {
     display: grid;
     background: white;
     border-radius: 8px;
-    max-width: 340px;
+    width: 450px;
+    height: 200px;
     padding: 1rem;
     gap: 0.7rem;
     box-shadow: 2.4px 1.9px 0.9px -19px rgba(0, 0, 0, 0.012),
@@ -55,7 +60,7 @@ p {
 
 .blog-desc {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

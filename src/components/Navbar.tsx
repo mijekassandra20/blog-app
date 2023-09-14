@@ -32,10 +32,16 @@ const Navbar = () => {
                             sx={{ mr: 2 }}
                         ></IconButton>
                         <Box sx={{ display: "flex", gap: 5 }}>
-                            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            <Typography
+                                className="cursor-style"
+                                variant="h6"
+                                component="div"
+                                sx={{ flexGrow: 1 }}
+                            >
                                 Blogs
                             </Typography>
                             <Typography
+                                className="cursor-style"
                                 variant="h6"
                                 component="div"
                                 sx={{ flexGrow: 1 }}
