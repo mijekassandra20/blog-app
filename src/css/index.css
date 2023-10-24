@@ -23,3 +23,13 @@ p {
 .cursor-style {
     cursor: pointer;
 }
+
+.banner-style {
+    position: relative;
+    height: fit-content;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(118, 118, 118, 0.5)),
+        url("https://i0.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/laptop-working-header.jpg?fit=1584%2C396&ssl=1");
+    margin-bottom: 3rem;
+    height: 350px;
+    background-size: cover;
+}

@@ -13,6 +13,9 @@ const typographyTheme = createTheme({
         h3: {
             fontWeight: 500,
         },
+        h6: {
+            fontWeight: 500,
+        },
         subtitle1: {
             fontSize: 18,
             fontWeight: 400,
@@ -33,6 +36,12 @@ const typographyTheme = createTheme({
             fontSize: 16,
             fontWeight: 500,
         },
+    },
+    palette: {
+        // text: {
+        //     primary: "#FFFFFF",
+        //     secondary: "#000000",
+        // },
     },
 });
 

@@ -22,7 +22,10 @@ const Navbar = () => {
     return (
         <div>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
+                <AppBar
+                    position="static"
+                    sx={{ background: "transparent", boxShadow: "none", paddingBlock: 1.5 }}
+                >
                     <Toolbar>
                         <IconButton
                             size="large"
@@ -38,7 +41,7 @@ const Navbar = () => {
                                 component="div"
                                 sx={{ flexGrow: 1 }}
                             >
-                                Blogs
+                                BLOGS
                             </Typography>
                             <Typography
                                 className="cursor-style"
@@ -47,7 +50,7 @@ const Navbar = () => {
                                 sx={{ flexGrow: 1 }}
                                 onClick={handleOpenModal}
                             >
-                                Add Blog
+                                ADD BLOG
                             </Typography>
                         </Box>
                     </Toolbar>

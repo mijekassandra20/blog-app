@@ -24,21 +24,22 @@ const AllBlogs: React.FC = () => {
 
     return (
         <Container sx={{ py: 2 }}>
-            <Box sx={{ p: 5, gap: 1, textAlign: "center" }}>
-                <Typography variant="h3">Blogaroo</Typography>
-                <Typography variant="subtitle1">Where Wit Meets the Web</Typography>
-            </Box>
             <Grid container spacing={4} sx={{ display: "flex" }}>
                 {blogs.map((blog) => (
                     <Grid item key={blog.id} xs={12} sm={6} md={6} lg={4}>
                         <Paper elevation={3} sx={{ p: 3 }}>
-                            <Typography noWrap variant="subtitle2" sx={{ mb: 2 }}>
+                            <Typography
+                                noWrap
+                                variant="subtitle2"
+                                sx={{ color: "text.primary", mb: 2 }}
+                            >
                                 {blog.title}
                             </Typography>
                             <Typography
                                 paragraph
                                 variant="body1"
                                 sx={{
+                                    color: "text.primary",
                                     overflow: "hidden",
                                     textOverflow: "ellipsis",
                                     display: "-webkit-box",
@@ -49,7 +50,9 @@ const AllBlogs: React.FC = () => {
                                 {blog.description}
                             </Typography>
                             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                                <Typography variant="caption">{blog.author}</Typography>
+                                <Typography variant="caption" sx={{ color: "text.primary" }}>
+                                    {blog.author}
+                                </Typography>
                                 <Button
                                     endIcon={<ArrowForward />}
                                     color="primary"
@@ -67,6 +70,7 @@ const AllBlogs: React.FC = () => {
                 <ViewFullBlog
                     open={openViewFull}
                     currentBlog={currentBlog}
+                    setCurrentBlog={setCurrentBlog}
                     onClose={handleCloseViewFull}
                     disagreeText="Close"
                     handleCloseViewFull={handleCloseViewFull}
