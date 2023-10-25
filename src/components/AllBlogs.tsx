@@ -4,8 +4,18 @@ import { IRootState } from "../app/store";
 import { Blog } from "../states/stateSlice";
 
 // mui imports
-import { Container, Typography, Paper, Box, Grid, Button } from "@mui/material";
-import { ArrowForward } from "@mui/icons-material";
+import {
+    Container,
+    Typography,
+    Box,
+    Grid,
+    Button,
+    Card,
+    CardContent,
+    CardMedia,
+    CardActionArea,
+} from "@mui/material";
+import { ArrowForward, Height } from "@mui/icons-material";
 import ViewFullBlog from "./ViewFullBlog";
 
 const AllBlogs: React.FC = () => {
@@ -27,42 +37,56 @@ const AllBlogs: React.FC = () => {
             <Grid container spacing={4} sx={{ display: "flex" }}>
                 {blogs.map((blog) => (
                     <Grid item key={blog.id} xs={12} sm={6} md={6} lg={4}>
-                        <Paper elevation={3} sx={{ p: 3 }}>
-                            <Typography
-                                noWrap
-                                variant="subtitle2"
-                                sx={{ color: "text.primary", mb: 2 }}
-                            >
-                                {blog.title}
-                            </Typography>
-                            <Typography
-                                paragraph
-                                variant="body1"
-                                sx={{
-                                    color: "text.primary",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    display: "-webkit-box",
-                                    WebkitLineClamp: "5",
-                                    WebkitBoxOrient: "vertical",
-                                }}
-                            >
-                                {blog.description}
-                            </Typography>
-                            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                                <Typography variant="caption" sx={{ color: "text.primary" }}>
-                                    {blog.author}
-                                </Typography>
-                                <Button
-                                    endIcon={<ArrowForward />}
-                                    color="primary"
-                                    size="small"
-                                    onClick={() => handleOpenViewFull(blog)}
-                                >
-                                    Read more
-                                </Button>
-                            </Box>
-                        </Paper>
+                        <Card>
+                            <CardActionArea className="card-style">
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    image="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wfGVufDB8fDB8fHww"
+                                    alt="blog cover"
+                                />
+                                <CardContent sx={{ p: 3, backgroundColor: "white" }}>
+                                    <Typography
+                                        noWrap
+                                        variant="subtitle2"
+                                        sx={{ color: "text.primary", mb: 2 }}
+                                    >
+                                        {blog.title}
+                                    </Typography>
+                                    <Typography
+                                        paragraph
+                                        variant="body1"
+                                        sx={{
+                                            color: "text.primary",
+                                            overflow: "hidden",
+                                            textOverflow: "ellipsis",
+                                            display: "-webkit-box",
+                                            WebkitLineClamp: "5",
+                                            WebkitBoxOrient: "vertical",
+                                            height: 110,
+                                        }}
+                                    >
+                                        {blog.description}
+                                    </Typography>
+                                    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                                        <Typography
+                                            variant="caption"
+                                            sx={{ color: "text.primary" }}
+                                        >
+                                            {blog.author}
+                                        </Typography>
+                                        <Button
+                                            endIcon={<ArrowForward />}
+                                            color="primary"
+                                            size="small"
+                                            onClick={() => handleOpenViewFull(blog)}
+                                        >
+                                            Read more
+                                        </Button>
+                                    </Box>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
                     </Grid>
                 ))}
             </Grid>

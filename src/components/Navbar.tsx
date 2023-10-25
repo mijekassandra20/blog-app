@@ -24,7 +24,7 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar
                     position="static"
-                    sx={{ background: "transparent", boxShadow: "none", paddingBlock: 1.5 }}
+                    sx={{ background: "transparent", boxShadow: "none", paddingBlock: 2 }}
                 >
                     <Toolbar>
                         <IconButton
@@ -37,17 +37,25 @@ const Navbar = () => {
                         <Box sx={{ display: "flex", gap: 5 }}>
                             <Typography
                                 className="cursor-style"
-                                variant="h6"
+                                variant="subtitle1"
                                 component="div"
-                                sx={{ flexGrow: 1 }}
+                                sx={{ flexGrow: 1, letterSpacing: 2 }}
                             >
-                                BLOGS
+                                HOME
                             </Typography>
                             <Typography
                                 className="cursor-style"
-                                variant="h6"
+                                variant="subtitle1"
                                 component="div"
-                                sx={{ flexGrow: 1 }}
+                                sx={{ flexGrow: 1, letterSpacing: 2 }}
+                            >
+                                MY BLOGS
+                            </Typography>
+                            <Typography
+                                className="cursor-style"
+                                variant="subtitle1"
+                                component="div"
+                                sx={{ flexGrow: 1, letterSpacing: 2 }}
                                 onClick={handleOpenModal}
                             >
                                 ADD BLOG

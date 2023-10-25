@@ -8,12 +8,9 @@ import { createTheme, ThemeProvider } from "@mui/material";
 
 const typographyTheme = createTheme({
     typography: {
-        fontFamily: "Poppins",
+        fontFamily: ["Poppins", "Open Sans"].join(","),
 
-        h3: {
-            fontWeight: 500,
-        },
-        h6: {
+        h2: {
             fontWeight: 500,
         },
         subtitle1: {
@@ -26,15 +23,17 @@ const typographyTheme = createTheme({
         },
         body1: {
             fontSize: 14,
-            fontWeight: 400,
+            fontWeight: 500,
+            fontFamily: "Open Sans",
         },
         body2: {
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: 400,
+            lineHeight: 2,
         },
         caption: {
-            fontSize: 16,
-            fontWeight: 500,
+            fontSize: 14,
+            fontWeight: 400,
         },
     },
     palette: {
