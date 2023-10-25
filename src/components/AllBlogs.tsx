@@ -15,7 +15,7 @@ import {
     CardMedia,
     CardActionArea,
 } from "@mui/material";
-import { ArrowForward, Height } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import ViewFullBlog from "./ViewFullBlog";
 
 const AllBlogs: React.FC = () => {
